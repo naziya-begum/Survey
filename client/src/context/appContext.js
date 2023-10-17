@@ -47,7 +47,7 @@ const AppProvider = ({ children }) => {
         try {
 
             disPatch({ type: VILLAGE_SETUP, payload: { vilName } });
-            const response = await axios.post('http://localhost:5000/', { vilName })
+            const response = await axios.post('/', { vilName })
             const data = response.data;
             disPatch({ type: VOLUNTEER_SETUP, payload: { data } })
 
@@ -64,7 +64,7 @@ const AppProvider = ({ children }) => {
         try {
             // disPatch({ type: HOUSEHOLD_SETUP, payload: { currentName } });
 
-            const response = await axios.post('http://localhost:5000/household', { currentName })
+            const response = await axios.post('/household', { currentName })
 
             const Household = response.data;
 
@@ -101,7 +101,7 @@ const AppProvider = ({ children }) => {
         try {
             disPatch({ type: USERDATA_SETUP, payload: { values } });
 
-            const response = await axios.post('http://localhost:5000/user', { values })
+            const response = await axios.post('/user', { values })
             const data = response.data
             disPatch({ type: HOUSEHOLD_SUCCESS, payload: { data } })
 
@@ -118,7 +118,7 @@ const AppProvider = ({ children }) => {
 
     const Report = async () => {
         try {
-            const response = await axios.post('http://localhost:5000/Reports', 'hello')
+            const response = await axios.post('/Reports', 'hello')
             console.log(response)
             const data = response.data
             disPatch({ type: REPORTS, payload: { data } });
