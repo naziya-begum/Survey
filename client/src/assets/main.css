@@ -1,0 +1,194 @@
+.main {
+    width: 50%;
+    margin: 0 auto;
+    align-items: center;
+    padding: 15px;
+    background-color: #a7b8b1;
+    margin-top: 30px;
+    height: 150%;
+}
+
+.Reports {
+    width: 50%;
+    margin: 10px auto;
+    align-items: center;
+
+    background-color: #a7b8b1;
+}
+
+.heading5 {
+    text-align: left;
+    line-height: 2;
+    color: #183D3D;
+}
+
+.btn {
+    float: right;
+    margin-right: 5%;
+    width: 20%;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+    border-width: 3px;
+
+
+}
+
+.btn:hover {
+    background-color: white;
+    color: #183D3D;
+}
+
+.form {
+    border-top: 1px dotted black;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+    border-width: 3px;
+
+    padding: 35px;
+    width: 90%;
+    margin-top: 15px;
+
+}
+
+.inputfeild {
+    width: 90%;
+    padding: 5px;
+    border: none;
+    margin: 0 auto;
+
+
+
+}
+
+.button {
+    padding: 5px;
+    margin: 0 auto;
+    width: 90%;
+    margin-top: 15px;
+    border-radius: 30px;
+    color: white;
+    border: 1px solid #183D3D;
+    background-color: #183D3D;
+    font-size: 20px;
+
+
+}
+
+.button:hover {
+
+    color: #183D3D;
+    border: 1px solid #183D3D;
+    background-color: white;
+
+
+}
+
+option {
+    color: #5C8374;
+
+
+
+}
+
+option:hover {
+    color: #183D3D;
+}
+
+h2 {
+    text-align: center;
+}
+
+
+
+
+@media only screen and (min-device-width: 500px) and (max-device-width: 1024px) {}
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 540px) {
+    .main {
+        width: 90%;
+        margin: 0 auto;
+        align-items: center;
+        padding: 15px;
+        background-color: #a7b8b1;
+
+    }
+
+    .Reports {
+        width: 100%;
+        margin: 10px auto;
+        align-items: center;
+
+        background-color: #a7b8b1;
+    }
+
+    .heading5 {
+        text-align: left;
+        line-height: 2;
+        color: #183D3D;
+        font-size: 15px;
+    }
+
+    .form {
+        border-top: 1px dotted black;
+        border-top-right-radius: 50px;
+        border-top-left-radius: 50px;
+        border-width: 3px;
+        text-align: center;
+        padding: 15px;
+        width: 100%;
+        margin-top: 15px;
+
+    }
+
+    #input {
+        text-align: center;
+    }
+
+
+    .inputfeild {
+        width: 90%;
+        padding: 5px;
+        border: none;
+        font-size: 12px;
+
+
+    }
+
+    .table {
+        width: 100%;
+    }
+
+    .button {
+        padding: 3px;
+        margin: 0 auto;
+        width: 90%;
+        margin-top: 15px;
+        border-radius: 30px;
+        color: white;
+        border: 1px solid #183D3D;
+        background-color: #183D3D;
+        font-size: 15px;
+
+
+    }
+
+    .button:hover {
+
+        color: #183D3D;
+        border: 1px solid #183D3D;
+        background-color: white;
+
+
+    }
+
+    option {
+        color: #5C8374;
+
+
+
+    }
+
+    option:hover {
+        color: #183D3D;
+    }
+}
