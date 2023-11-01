@@ -27,5 +27,8 @@
     "mongoose": "^7.5.2",
     "morgan": "^1.10.0",
     "validator": "^13.11.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }

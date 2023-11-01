@@ -6,7 +6,6 @@ const Reports = () => {
         "NEELIMA PALLE",
         "PARASA JHANSI RANI",
         "DOPPALA KIRAN KUMAR",
-        "#N/A",
         "KAMPA BHAVANI",
         "RAMESH GODAVARTHI",
         "JYOTHSNA LATHA BETHAPUDI",
@@ -48,15 +47,32 @@ const Reports = () => {
         "SUMAN BALLA",
         "KALYANI BUDDARAPU"
     ]
-    const Total = [61, 59, 74, 1, 63, 71, 70, 64, 59, 69, 65, 55, 50, 69, 53, 66, 70, 54, 67, 46, 62, 60, 60, 52, 56, 60, 54, 64, 59, 62, 64, 61, 60, 66, 69, 65, 60, 49, 58, 59, 51, 51, 48, 61]
+    const Total = [61, 59, 74, 63, 71, 70, 64, 59, 69, 65, 55, 50, 69, 53, 66, 70, 54, 67, 46, 62, 60, 60, 52, 56, 60, 54, 64, 59, 62, 64, 61, 60, 66, 69, 65, 60, 49, 58, 59, 51, 51, 48, 61];
+    function sumArray(arr) {
+        return arr.reduce((total, current) => total + current, 0);
+    }
 
+    const total = sumArray(Total);
 
+    const array = []
+    const toBeUpdateArray = []
+    data.map((names, index) => {
+
+        const update = Total[index] - Reports[names]
+        array.push(update)
+        const toUpdateArray = Reports[names]
+        return toBeUpdateArray.push(toUpdateArray)
+
+    })
+    const arrayUpdate = sumArray(array)
+    const arrayToBeUpdate = sumArray(toBeUpdateArray)
 
     return (
         <div className="Reports" >
             <h2>
                 Reports
             </h2>
+
             <table className="table table-dark">
                 <thead >
                     <tr>
@@ -79,6 +95,12 @@ const Reports = () => {
 
                     })}
 
+                    <tr><td>Total</td>
+
+                        <td>{total}</td>
+                        <td>{arrayUpdate}</td>
+                        <td>{arrayToBeUpdate}</td>
+                    </tr>
 
 
 

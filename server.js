@@ -142,17 +142,7 @@ app.post('/Reports', function (req, res) {
 
     Data.find({}).maxTimeMS(maxTimeInMilliseconds).then((data) => {
 
-        // const uniqueVolunteerNames = new Set();
 
-
-        // data.forEach((item) => {
-        //     uniqueVolunteerNames.add(item.Volunteer);
-
-        // })
-
-        // const uniqueVolunteerNamesArray = [...uniqueVolunteerNames];
-        // console.log(uniqueVolunteerNamesArray.length)
-        // res.json(uniqueVolunteerNamesArray)
 
         const volunteerCounts = {}; // Create an empty object to store volunteer counts
 

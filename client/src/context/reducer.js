@@ -25,8 +25,8 @@ const reducer = (state, action) => {
         return {
             ...state,
             isLoading: true,
-            village: action.payload.vilName
 
+            village: action.payload.vilName,
         }
     }
     if (action.type === VOLUNTEER_SETUP) {

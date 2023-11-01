@@ -7,6 +7,8 @@ import {
 
 import reducer from './reducer.js';
 
+const Data1 = localStorage.getItem('data')
+// console.log(JSON.parse(Data1))
 
 const initialState = {
     isLoading: false,
@@ -21,8 +23,9 @@ const initialState = {
     showAlert: false,
     adhar: '',
     checkbox: '', alertType: '', alertText: '',
-    Reports: null,
-    Result: ''
+    Reports: JSON.parse(Data1) || null,
+    Result: '',
+
 }
 
 
@@ -42,12 +45,15 @@ const AppProvider = ({ children }) => {
         }, 3000)
 
     }
+    // const addUserToLocalStorage = (data) => {
+    //     return localStorage.setItem('data', data)
+    // }
     const VillageCheck = async (vilName) => {
 
         try {
 
             disPatch({ type: VILLAGE_SETUP, payload: { vilName } });
-            const response = await axios.post('/', { vilName })
+            const response = await axios.post('http://localhost:5000/', { vilName })
             const data = response.data;
             disPatch({ type: VOLUNTEER_SETUP, payload: { data } })
 
@@ -64,7 +70,7 @@ const AppProvider = ({ children }) => {
         try {
             // disPatch({ type: HOUSEHOLD_SETUP, payload: { currentName } });
 
-            const response = await axios.post('/household', { currentName })
+            const response = await axios.post('http://localhost:5000/household', { currentName })
 
             const Household = response.data;
 
@@ -101,7 +107,7 @@ const AppProvider = ({ children }) => {
         try {
             disPatch({ type: USERDATA_SETUP, payload: { values } });
 
-            const response = await axios.post('/user', { values })
+            const response = await axios.post('http://localhost:5000/user', { values })
             const data = response.data
             disPatch({ type: HOUSEHOLD_SUCCESS, payload: { data } })
 
@@ -113,16 +119,17 @@ const AppProvider = ({ children }) => {
         catch (err) {
             console.log(err)
         }
-        return console.log(values)
+        return Report()
     }
 
     const Report = async () => {
         try {
-            const response = await axios.post('/Reports', 'hello')
+            const response = await axios.post('http://localhost:5000/Reports', 'hello')
             console.log(response)
             const data = response.data
             disPatch({ type: REPORTS, payload: { data } });
-
+            // console.log(data)
+            localStorage.setItem("data", JSON.stringify(data));
         } catch (err) {
             console.log(err)
         }

@@ -30,9 +30,15 @@ const Main = () => {
         showAlert, displayAlert, userSend, alertType, alertText, Reports, village, Volunteer, Report, Result
     } = useAppContext();
 
-    if (volunteerSelect === null) {
+
+
+
+    if (villageSelect === null) {
         window.location.reload()
+
+
     }
+
 
     const handleChange = (e) => {
         e.preventDefault()
@@ -72,13 +78,16 @@ const Main = () => {
             displayAlert()
 
         } else {
-            userSend(values)
-            alert('Successfully Submitted')
 
+            userSend(values)
+            Report()
             console.log('success')
-            window.location.reload()
 
         }
+        alert('Successfully Submitted')
+        setTimeout(() => {
+            window.location.reload()
+        }, 5000);
     }
 
 
@@ -86,13 +95,12 @@ const Main = () => {
 
     return (
         <div className='main'>
-            {Reports !== null ? <Link to='/Reports' className="btn">Reports</Link> : null}
+            {<Link to='/Reports' className="btn">Reports</Link>}
 
             <br />
 
             <div>  <h5 className='heading5'>Secrateriat:</h5>
-                <select className="inputfeild" required onChange={handleChange}  >
-
+                <select className="inputfeild" required onChange={handleChange}>
                     <option hidden>Select...</option>
                     <option value='G.konduru-1'>KONDURU1</option>
                     <option value='G.konduru-2'>KONDURU2</option>
@@ -121,9 +129,9 @@ const Main = () => {
             {headSelect ? <div>
                 <form className='form' onSubmit={handleSubmit}>
                     {showAlert ? <div className={`alert alert-${alertType}`}>{alertText}</div> : false}
-                    <h5 className='heading5' id='input'>AdharNo.of {houseHoldHeadName}:</h5>
+                    <h5 className='heading5' id='input'>Adhar Number of {houseHoldHeadName}:</h5>
                     <input className="inputfeild" name='Adhar' onChange={inputChnage} type='number' placeholder='*****' />
-                    <h5 className='heading5' id='input'>Is House of {houseHoldHeadName} has tap connection??</h5>
+                    <h5 className='heading5 bolder' id='input'>Is House of {houseHoldHeadName} has Tap connection(Provided by panchayat)</h5>
                     <select className="inputfeild" name='checkbox' onChange={inputChnage}>
                         <option hidden>Select...</option>
                         <option value='YES'>YES</option>
