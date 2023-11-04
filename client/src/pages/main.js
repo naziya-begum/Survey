@@ -75,20 +75,14 @@ const Main = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        // if (values.Adhar.length > 12 || values.Adhar.length < 12 || values.checkbox === '') {
-
-        //     displayAlert()
-
-        // } else {
-
 
         Report()
         userSend(values)
         console.log('success')
-        // alert('Successfully Submitted')
-        // setTimeout(() => {
-        //     window.location.reload()
-        // }, 3000);
+        alert('Successfully Submitted')
+        setTimeout(() => {
+            window.location.reload()
+        }, 3000);
 
         // }
 

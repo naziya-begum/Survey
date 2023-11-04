@@ -7,7 +7,6 @@ body {
     margin: 0 auto;
     align-items: center;
     padding: 15px;
-
     margin-top: 30px;
     height: 150%;
 }
@@ -142,6 +141,10 @@ h2 {
         line-height: 2;
         color: #183D3D;
         font-size: 15px;
+    }
+
+    .bolder {
+        text-align: left;
     }
 
     .form {
