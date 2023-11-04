@@ -74,17 +74,21 @@ const Main = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
+        if (values.Assessment_Number === '' || values.Assessment_Name === '' || values.HouseType === '') {
+
+            displayAlert()
+        } else {
+            Report()
+            userSend(values)
+            console.log('success')
+            alert('Successfully Submitted')
+            setTimeout(() => {
+                window.location.reload()
+            }, 3000);
+        }
 
 
-        Report()
-        userSend(values)
-        console.log('success')
-        alert('Successfully Submitted')
-        setTimeout(() => {
-            window.location.reload()
-        }, 3000);
 
-        // }
 
     }
 
@@ -148,6 +152,7 @@ const Main = () => {
                             <input className="inputfeild" name='Assessment_Name' onChange={inputChnage} type='text' placeholder='*****' />
                         </div>
                             :
+
                             <div>
 
                                 <h5 className='heading5 bolder' id='input'>నివసిస్తున్న స్వంత ఇంటి పన్ను ప్రకారం అసెస్మెంట్ నంబర్:</h5>
