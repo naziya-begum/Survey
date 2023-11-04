@@ -165,10 +165,10 @@ const Main = () => {
                         <option value='YES'>YES</option>
                         <option value='NO'>NO</option>
                     </select> */}
-
+                    <p className='desiner'>WEBSITE DESIGNED BY:@naziya</p>
 
                 </form>
-                <p className='desiner'>WEBSITE DESIGNED BY:@naziya</p>
+
             </div> : false}
 
 
