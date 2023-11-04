@@ -1,9 +1,13 @@
+body {
+    background-color: #C4DFDF;
+}
+
 .main {
     width: 50%;
     margin: 0 auto;
     align-items: center;
     padding: 15px;
-    background-color: #a7b8b1;
+
     margin-top: 30px;
     height: 150%;
 }
@@ -100,6 +104,16 @@ h2 {
 
 .bolder {
     font-weight: bolder;
+}
+
+.bold {
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+.desiner {
+    text-align: center;
+    font-family: cursive;
 }
 
 

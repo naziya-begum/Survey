@@ -9,8 +9,10 @@ const Main = () => {
         Secrateriat: '',
         Volunteer: '',
         headName: '',
-        Adhar: '',
-        checkbox: '',
+        Assessment_Number: '',
+        Assessment_Name: '',
+        HouseType: ''
+
 
     }
 
@@ -27,7 +29,7 @@ const Main = () => {
         headSelect,
         HouseHoldCheck,
         houseHoldHeadName,
-        showAlert, displayAlert, userSend, alertType, alertText, Reports, village, Volunteer, Report, Result
+        showAlert, housetypeselect, housetype, houseType, displayAlert, userSend, alertType, alertText, Reports, village, Volunteer, Report, Result
     } = useAppContext();
 
 
@@ -64,30 +66,32 @@ const Main = () => {
     }
     const inputChnage = (e) => {
 
-        // console.log(e.target.name + ':' + e.target.value)
-        setValues({ ...values, Secrateriat: village, Volunteer: Volunteer, headName: name, [e.target.name]: e.target.value })
 
+        setValues({ ...values, Secrateriat: village, Volunteer: Volunteer, headName: name, [e.target.name]: e.target.value })
+        houseType(e.target.value)
 
         e.preventDefault()
     }
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        if (values.Adhar.length > 12 || values.Adhar.length < 12 || values.checkbox === '') {
+        // if (values.Adhar.length > 12 || values.Adhar.length < 12 || values.checkbox === '') {
 
-            displayAlert()
+        //     displayAlert()
 
-        } else {
+        // } else {
 
-            userSend(values)
-            Report()
-            console.log('success')
 
-        }
-        alert('Successfully Submitted')
-        setTimeout(() => {
-            window.location.reload()
-        }, 5000);
+        Report()
+        userSend(values)
+        console.log('success')
+        // alert('Successfully Submitted')
+        // setTimeout(() => {
+        //     window.location.reload()
+        // }, 3000);
+
+        // }
+
     }
 
 
@@ -129,18 +133,48 @@ const Main = () => {
             {headSelect ? <div>
                 <form className='form' onSubmit={handleSubmit}>
                     {showAlert ? <div className={`alert alert-${alertType}`}>{alertText}</div> : false}
-                    <h5 className='heading5' id='input'>Adhar Number of {houseHoldHeadName}:</h5>
-                    <input className="inputfeild" name='Adhar' onChange={inputChnage} type='number' placeholder='*****' />
-                    <h5 className='heading5 bolder' id='input'>Is House of {houseHoldHeadName} has Tap connection(Provided by panchayat)</h5>
+                    {/* <h5 className='heading5' id='input'>Adhar Number of {houseHoldHeadName}:</h5>
+                    <input className="inputfeild" name='Adhar' onChange={inputChnage} type='number' placeholder='*****' /> */}
+
+                    <h5 className='heading5 bolder' id='input'> నివసిస్తున్న ఇల్లు </h5>
+                    <select className="inputfeild" name='HouseType' onChange={inputChnage}>
+                        <option hidden>Select...</option>
+                        <option value='Rent House'>Rent House</option>
+                        <option value='Own House'>Own House</option>
+                    </select>
+
+                    {housetypeselect ? <div>
+                        {housetype === 'Rent House' ? <div>
+                            <br />
+                            <br />
+                            <h5 className='heading5 bold' id='input'>నివసిస్తున్న అద్దె ఇంటి పన్ను ప్రకారం అసెస్మెంట్ నంబర్:</h5>
+                            <input className="inputfeild" name='Assessment_Number' onChange={inputChnage} type='number' placeholder='*****' />
+
+                            <h5 className='heading5 bold' id='input'>ఇంటి పన్ను ప్రకారం ఇంటి యజమాని పేరు:</h5>
+                            <input className="inputfeild" name='Assessment_Name' onChange={inputChnage} type='text' placeholder='*****' />
+                        </div>
+                            :
+                            <div>
+
+                                <h5 className='heading5 bolder' id='input'>నివసిస్తున్న స్వంత ఇంటి పన్ను ప్రకారం అసెస్మెంట్ నంబర్:</h5>
+                                <input className="inputfeild" name='Assessment_Number' onChange={inputChnage} type='number' placeholder='*****' />
+
+                                <h5 className='heading5 bold' id='input'>ఇంటి పన్ను ప్రకారం ఇంటి యజమాని పేరు:</h5>
+                                <input className="inputfeild" name='Assessment_Name' onChange={inputChnage} type='text' placeholder='*****' />
+                            </div>}
+                    </div> : false}
+                    <br />
+                    <button className='button' type='submit'>Submit</button>
+                    {/* <h5 className='heading5 bolder' id='input'>Is House of {houseHoldHeadName} has Tap connection(Provided by panchayat)</h5>
                     <select className="inputfeild" name='checkbox' onChange={inputChnage}>
                         <option hidden>Select...</option>
                         <option value='YES'>YES</option>
                         <option value='NO'>NO</option>
-                    </select>
-                    <br />
-                    <button className='button' type='submit'>Submit</button>
+                    </select> */}
+
 
                 </form>
+                <p className='desiner'>WEBSITE DESIGNED BY:@naziya</p>
             </div> : false}
 
 

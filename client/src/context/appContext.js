@@ -2,7 +2,7 @@ import React, { useReducer, useContext, createContext } from "react";
 import axios from 'axios';
 import {
     VILLAGE_SETUP,
-    VOLUNTEER_SETUP, REPORTS, VOLUNTEER_SUCCESS, HOUSEHOLD_SETUP, DISPLAY_ALERT, CLEAR_ALERT, HOUSEHOLD_SUCCESS, USERDATA_SETUP
+    VOLUNTEER_SETUP, REPORTS, VOLUNTEER_SUCCESS, HOUSE_TYPE, HOUSEHOLD_SETUP, DISPLAY_ALERT, CLEAR_ALERT, HOUSEHOLD_SUCCESS, USERDATA_SETUP
 } from './actions.js';
 
 import reducer from './reducer.js';
@@ -21,7 +21,8 @@ const initialState = {
     houseHoldHeadName: '',
     headSelect: false,
     showAlert: false,
-    adhar: '',
+    housetype: '',
+    housetypeselect: false,
     checkbox: '', alertType: '', alertText: '',
     Reports: JSON.parse(Data1) || null,
     Result: '',
@@ -121,7 +122,13 @@ const AppProvider = ({ children }) => {
         }
         return Report()
     }
-
+    const houseType = async (type) => {
+        try {
+            return disPatch({ type: HOUSE_TYPE, payload: { type } });
+        } catch (err) {
+            console.log(err)
+        }
+    }
     const Report = async () => {
         try {
             const response = await axios.post('/Reports', 'hello')
@@ -139,7 +146,7 @@ const AppProvider = ({ children }) => {
 
 
 
-    return <AppContext.Provider value={{ ...state, displayAlert, VillageCheck, volunteerCheck, HouseHoldCheck, userSend, Report }}>
+    return <AppContext.Provider value={{ ...state, houseType, displayAlert, VillageCheck, volunteerCheck, HouseHoldCheck, userSend, Report }}>
         {children}
     </AppContext.Provider>
 }

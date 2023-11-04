@@ -1,6 +1,6 @@
 
 
-import { VILLAGE_SETUP, REPORTS, VOLUNTEER_SETUP, VOLUNTEER_SUCCESS, DISPLAY_ALERT, CLEAR_ALERT, HOUSEHOLD_SETUP, HOUSEHOLD_SUCCESS, USERDATA_SETUP } from "./actions.js"
+import { VILLAGE_SETUP, REPORTS, HOUSE_TYPE, VOLUNTEER_SETUP, VOLUNTEER_SUCCESS, DISPLAY_ALERT, CLEAR_ALERT, HOUSEHOLD_SETUP, HOUSEHOLD_SUCCESS, USERDATA_SETUP } from "./actions.js"
 
 const reducer = (state, action) => {
 
@@ -69,11 +69,17 @@ const reducer = (state, action) => {
 
         }
     }
+    if (action.type === HOUSE_TYPE) {
+        return {
+            ...state,
+            housetypeselect: true,
+            housetype: action.payload.type,
+        }
+    }
     if (action.type === USERDATA_SETUP) {
         return {
             ...state,
 
-            adhar: action.payload.values.Adhar,
             checkbox: action.payload.values.checkbox
 
         }

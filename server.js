@@ -66,11 +66,14 @@ const UserSchema1 = new mongoose.Schema({
 })
 const Data2 = mongoose.model('Data2', UserSchema1)
 const UserSchema2 = new mongoose.Schema({
-    headName: String,
-    Adhar: String,
-    checkbox: String,
+    Secrateriat: String,
     Volunteer: String,
-    Secrateriat: String
+    headName: String,
+    HouseType: String,
+    Assessment_Name: String,
+    Assessment_Number: String,
+
+
 
 })
 const user = mongoose.model('User', UserSchema2)
@@ -127,10 +130,10 @@ app.post('/household', function (req, res) {
 })
 app.post('/user', function (req, res) {
     // console.log(req.body.values.Adhar)
-    const { headName, Adhar, checkbox, Secrateriat, Volunteer } = req.body.values;
+    const { headName, HouseType, Assessment_Number, Assessment_Name, Secrateriat, Volunteer } = req.body.values;
     const maxTimeInMilliseconds = 20000;
 
-    user.create({ Secrateriat, Volunteer, headName, Adhar, checkbox })
+    user.create({ Secrateriat, Volunteer, headName, HouseType, Assessment_Number, Assessment_Name })
     Data.deleteOne({ HouseHoldHead: headName }).maxTimeMS(maxTimeInMilliseconds).then((data) => {
         console.log(data.length)
     })
