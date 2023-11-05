@@ -1,6 +1,27 @@
-import { useAppContext } from "../context/appContext"
+import { useAppContext } from "../context/appContext";
+import React, { useEffect } from 'react'
+
 const Reports = () => {
-    const { Reports } = useAppContext()
+    const { Reports, Report } = useAppContext()
+
+
+    useEffect(() => {
+        const handleBeforeUnload = (e) => {
+            e.preventDefault();
+            setTimeout(() => {
+                Report()
+                console.log('hello')
+            }, 5000);
+
+
+        };
+
+        window.addEventListener('beforeunload', handleBeforeUnload);
+
+        return () => {
+            Report()
+        };
+    }, []);
 
     const data = [
         "NEELIMA PALLE",
