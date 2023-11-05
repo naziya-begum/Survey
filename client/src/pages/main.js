@@ -2,6 +2,7 @@ import '../assets/main.css'
 import { useState } from 'react';
 import { useAppContext } from '../context/appContext';
 import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
 
 const Main = () => {
     const [name, setName] = useState('')
@@ -40,7 +41,23 @@ const Main = () => {
 
 
     }
+    useEffect(() => {
+        const handleBeforeUnload = (e) => {
+            e.preventDefault();
+            setTimeout(() => {
+                Report()
+                console.log('hello')
+            }, 5000);
 
+
+        };
+
+        window.addEventListener('beforeunload', handleBeforeUnload);
+
+        return () => {
+            Report()
+        };
+    }, []);
 
     const handleChange = (e) => {
         e.preventDefault()
@@ -170,7 +187,7 @@ const Main = () => {
                         <option value='YES'>YES</option>
                         <option value='NO'>NO</option>
                     </select> */}
-                    <p className='desiner'>WEBSITE DESIGNED BY:@naziya</p>
+                    <p className='desiner'>website-Designed & Maintained By:Dev_Nazi</p>
 
                 </form>
 

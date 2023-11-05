@@ -112,10 +112,10 @@ h2 {
 }
 
 .desiner {
-    text-align: center;
+    text-align: right;
     font-family: cursive;
-    padding-top: 15px;
-    margin-top: 5px;
+    padding-top: 10px;
+    font-size: 10px;
 }
 
 
@@ -163,9 +163,9 @@ h2 {
     }
 
     #input {
-        text-align: center;
-    }
+        text-align: left;
 
+    }
 
     .inputfeild {
         width: 90%;
