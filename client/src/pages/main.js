@@ -160,8 +160,8 @@ const Main = () => {
 
                     {housetypeselect ? <div>
                         {housetype === 'Rent House' ? <div>
-                            <br />
-                            <br />
+
+
                             <h5 className='heading5 bold' id='input'>నివసిస్తున్న అద్దె ఇంటి పన్ను ప్రకారం అసెస్మెంట్ నంబర్:</h5>
                             <input className="inputfeild" name='Assessment_Number' onChange={inputChnage} type='number' placeholder='*****' />
 
