@@ -124,7 +124,7 @@ const Reports = () => {
 
                             {Reports[names] === undefined ? <td>{Total[index] + 0}</td> : <td>{Total[index] - Reports[names]}</td>}
 
-                            <td>{Reports[names] === undefined ? <td>0</td> : Reports[names]}</td>
+                            <td>{Reports[names] === undefined ? 0 : Reports[names]}</td>
 
                         </tr>
 
