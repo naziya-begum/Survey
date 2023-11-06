@@ -101,17 +101,16 @@ const Reports = () => {
     return (
         <div className="Reports" >
             <h2>
-                Reports
+                Report
             </h2>
 
             <table className="table table-dark">
                 <thead >
                     <tr>
                         <th scope="col">Volunteer</th>
-
                         <th scope="col">Total</th>
-                        <th scope="col">Updated</th>
-                        <th scope="col">To.Be Updated</th>
+                        <th scope="col">Completed</th>
+                        <th scope="col">Pending</th>
 
                     </tr>
                 </thead>
