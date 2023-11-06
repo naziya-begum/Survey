@@ -114,7 +114,7 @@ const Main = () => {
 
     return (
         <div className='main'>
-            {<Link to='/Reports' className="btn">Reports</Link>}
+            {<Link to='/Reports' className="btn">Report</Link>}
 
             <br />
 
@@ -187,7 +187,7 @@ const Main = () => {
                         <option value='YES'>YES</option>
                         <option value='NO'>NO</option>
                     </select> */}
-                    <p className='desiner'>website-Designed & Maintained By:Dev_Nazi</p>
+                    <p className='desiner'>Website-Designed & Maintained By:Dev_Nazi</p>
 
                 </form>
 

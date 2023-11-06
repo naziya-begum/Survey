@@ -1,6 +1,5 @@
-import { useAppContext } from "../context/appContext";
+import { useAppContext } from "../context/appContext"
 import React, { useEffect } from 'react'
-
 const Reports = () => {
     const { Reports, Report } = useAppContext()
 
@@ -10,10 +9,7 @@ const Reports = () => {
             e.preventDefault();
             setTimeout(() => {
                 Report()
-                console.log('hello')
             }, 5000);
-
-
         };
 
         window.addEventListener('beforeunload', handleBeforeUnload);
@@ -79,19 +75,33 @@ const Reports = () => {
     const toBeUpdateArray = []
     data.map((names, index) => {
 
-        const update = Total[index] - Reports[names]
-        array.push(update)
-        const toUpdateArray = Reports[names]
-        return toBeUpdateArray.push(toUpdateArray)
+
+
+        // console.log(update)
+        if (Reports[names] === undefined) {
+            const update = Total[index] + 0
+            const toUpdateArray = 0
+            array.push(update)
+            return toBeUpdateArray.push(toUpdateArray)
+
+        } else {
+            const update = Total[index] - Reports[names]
+            const toUpdateArray = Reports[names]
+            array.push(update)
+            return toBeUpdateArray.push(toUpdateArray)
+        }
+
+
 
     })
     const arrayUpdate = sumArray(array)
     const arrayToBeUpdate = sumArray(toBeUpdateArray)
+    console.log(arrayToBeUpdate)
 
     return (
         <div className="Reports" >
             <h2>
-                Reports
+                Report
             </h2>
 
             <table className="table table-dark">
@@ -99,8 +109,8 @@ const Reports = () => {
                     <tr>
                         <th scope="col">Volunteer</th>
                         <th scope="col">Total</th>
-                        <th scope="col">Updated</th>
-                        <th scope="col">To.Be Updated</th>
+                        <th scope="col">Completed</th>
+                        <th scope="col">Pending</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -109,8 +119,10 @@ const Reports = () => {
                             <th scope="row" >{names}</th>
 
                             <td>{Total[index]}</td>
-                            <td>{Total[index] - Reports[names]}</td>
-                            <td>{Reports[names]}</td>
+
+                            {Reports[names] === undefined ? <td>{Total[index] + 0}</td> : <td>{Total[index] - Reports[names]}</td>}
+
+                            <td>{Reports[names] === undefined ? <td>0</td> : Reports[names]}</td>
 
                         </tr>
 
