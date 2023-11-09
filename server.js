@@ -70,6 +70,7 @@ const UserSchema2 = new mongoose.Schema({
     Volunteer: String,
     headName: String,
     HouseType: String,
+    IsHouseHasNum: String,
     Assessment_Name: String,
     Assessment_Number: String,
 
@@ -130,10 +131,10 @@ app.post('/household', function (req, res) {
 })
 app.post('/user', function (req, res) {
     // console.log(req.body.values.Adhar)
-    const { headName, HouseType, Assessment_Number, Assessment_Name, Secrateriat, Volunteer } = req.body.values;
+    const { headName, HouseType, Assessment_Number, Assessment_Name, Secrateriat, Volunteer, IsHouseHasNum } = req.body.values;
     const maxTimeInMilliseconds = 20000;
 
-    user.create({ Secrateriat, Volunteer, headName, HouseType, Assessment_Number, Assessment_Name })
+    user.create({ Secrateriat, Volunteer, headName, HouseType, Assessment_Number, Assessment_Name, IsHouseHasNum })
     Data.deleteOne({ HouseHoldHead: headName }).maxTimeMS(maxTimeInMilliseconds).then((data) => {
         console.log(data.length)
     })

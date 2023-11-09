@@ -12,8 +12,8 @@ const Main = () => {
         headName: '',
         Assessment_Number: '',
         Assessment_Name: '',
-        HouseType: ''
-
+        HouseType: '',
+        IsHouseHasNum: ''
 
     }
 
@@ -91,18 +91,15 @@ const Main = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (values.Assessment_Number === '' || values.Assessment_Name === '' || values.HouseType === '') {
 
-            displayAlert()
-        } else {
-            Report()
-            userSend(values)
-            console.log('success')
-            alert('Successfully Submitted')
-            setTimeout(() => {
-                window.location.reload()
-            }, 3000);
-        }
+        Report()
+        userSend(values)
+        console.log('success')
+        alert('Successfully Submitted')
+        setTimeout(() => {
+            window.location.reload()
+        }, 1000);
+
 
 
 
@@ -114,7 +111,7 @@ const Main = () => {
 
     return (
         <div className='main'>
-            {<Link to='/Reports' className="btn">Report</Link>}
+            {<Link to='/Reports' className="btn">Reports</Link>}
 
             <br />
 
@@ -149,7 +146,7 @@ const Main = () => {
                 <form className='form' onSubmit={handleSubmit}>
                     {showAlert ? <div className={`alert alert-${alertType}`}>{alertText}</div> : false}
                     {/* <h5 className='heading5' id='input'>Adhar Number of {houseHoldHeadName}:</h5>
-                    <input className="inputfeild" name='Adhar' onChange={inputChnage} type='number' placeholder='*****' /> */}
+                <input className="inputfeild" name='Adhar' onChange={inputChnage} type='number' placeholder='*****' /> */}
 
                     <h5 className='heading5 bolder' id='input'> నివసిస్తున్న ఇల్లు </h5>
                     <select className="inputfeild" name='HouseType' onChange={inputChnage}>
@@ -157,9 +154,15 @@ const Main = () => {
                         <option value='Rent House'>Rent House</option>
                         <option value='Own House'>Own House</option>
                     </select>
+                    <h5 className='heading5 bolder' id='input'>నివసిస్తున్న ఇంటికి ఇంటి పన్ను ఉన్నదా లేదా?.</h5>
+                    <select className="inputfeild" name='IsHouseHasNum' onChange={inputChnage}>
+                        <option hidden>Select...</option>
+                        <option value='YES'>YES</option>
+                        <option value='NO'>NO</option>
+                    </select>
 
-                    {housetypeselect ? <div>
-                        {housetype === 'Rent House' ? <div>
+                    {values.IsHouseHasNum === 'YES' ? <div>
+                        {values.HouseType === 'Rent House' ? <div>
 
 
                             <h5 className='heading5 bold' id='input'>నివసిస్తున్న అద్దె ఇంటి పన్ను ప్రకారం అసెస్మెంట్ నంబర్:</h5>
@@ -169,26 +172,22 @@ const Main = () => {
                             <input className="inputfeild" name='Assessment_Name' onChange={inputChnage} type='text' placeholder='*****' />
                         </div>
                             :
-
                             <div>
 
-                                <h5 className='heading5 bolder' id='input'>నివసిస్తున్న స్వంత ఇంటి పన్ను ప్రకారం అసెస్మెంట్ నంబర్:</h5>
+                                <h5 className='heading5 bold' id='input'>నివసిస్తున్న స్వంత ఇంటి పన్ను ప్రకారం అసెస్మెంట్ నంబర్:</h5>
                                 <input className="inputfeild" name='Assessment_Number' onChange={inputChnage} type='number' placeholder='*****' />
 
-                                <h5 className='heading5 bold' id='input'>ఇంటి పన్ను ప్రకారం ఇంటి యజమాని పేరు:</h5>
-                                <input className="inputfeild" name='Assessment_Name' onChange={inputChnage} type='text' placeholder='*****' />
+                                <div>
+                                    <h5 className='heading5 bold' id='input'>ఇంటి పన్ను ప్రకారం ఇంటి యజమాని పేరు:</h5>
+                                    <input className="inputfeild" name='Assessment_Name' onChange={inputChnage} type='text' placeholder='*****' />
+                                </div>
+
                             </div>}
                     </div> : false}
                     <br />
                     <button className='button' type='submit'>Submit</button>
-                    {/* <h5 className='heading5 bolder' id='input'>Is House of {houseHoldHeadName} has Tap connection(Provided by panchayat)</h5>
-                    <select className="inputfeild" name='checkbox' onChange={inputChnage}>
-                        <option hidden>Select...</option>
-                        <option value='YES'>YES</option>
-                        <option value='NO'>NO</option>
-                    </select> */}
-                    <p className='desiner'>Website-Designed & Maintained By:Dev_Nazi</p>
 
+                    <p className='desiner'>website-Designed & Maintained By:Dev_Nazi</p>
                 </form>
 
             </div> : false}
@@ -196,8 +195,6 @@ const Main = () => {
 
 
         </div>
-
-
 
 
 
