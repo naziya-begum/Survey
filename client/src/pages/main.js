@@ -96,9 +96,8 @@ const Main = () => {
         userSend(values)
         console.log('success')
         alert('Successfully Submitted')
-        setTimeout(() => {
-            window.location.reload()
-        }, 1000);
+        window.location.reload()
+
 
 
 
