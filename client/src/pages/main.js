@@ -91,19 +91,35 @@ const Main = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
-
-        Report()
-        userSend(values)
-        console.log('success')
-        alert('Successfully Submitted')
-        window.location.reload()
-
+        if (values.HouseType !== '') {
+            if (values.IsHouseHasNum === 'NO') {
+                Report()
+                userSend(values)
+                console.log('success')
 
 
+            } else if (values.Assessment_Name === '' || values.Assessment_Number === '') {
+                displayAlert()
+            } else {
+                Report()
+                userSend(values)
+                console.log('success')
+            }
+
+        } else { displayAlert() }
 
 
+
+
+        // alert('Successfully Submitted')
+        // setTimeout(() => {
+        //     window.location.reload()
+        // }, 3000);
+
+        // }
 
     }
+
 
 
 
