@@ -95,7 +95,7 @@ const Main = () => {
             if (values.IsHouseHasNum === 'NO') {
                 Report()
                 userSend(values)
-                console.log('success')
+                window.location.reload()
 
 
             } else if (values.Assessment_Name === '' || values.Assessment_Number === '') {
@@ -103,6 +103,7 @@ const Main = () => {
             } else {
                 Report()
                 userSend(values)
+                window.location.reload()
                 console.log('success')
             }
 
